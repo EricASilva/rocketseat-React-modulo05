@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #7159c1;
+    background: #284387;
     -webkit-font-smoothing: antialiased !important;
   }
 
@@ -27,6 +27,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  a{
+     color: #2CD697;
+     border-bottom: 2px solid #2CD697;
+     text-decoration: none;
 
 
 `;

@@ -1,37 +1,17 @@
 import styled, { keyframes, css } from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 700px;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 80px auto;
-
-  h1 {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-
-    svg {
-      margin-right: 10px;
-    }
-  }
-`;
-
 export const Form = styled.form`
   margin-top: 30px;
   display: flex;
   flex-direction: row;
+`;
 
-  input {
-    flex: 1;
-    border: 1px solid #eee;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 16px;
-  }
+export const Input = styled.input`
+  flex: 1;
+  border: 1px solid ${(props) => (props.error ? 'red' : '#eee')};
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 16px;
 `;
 
 const rotate = keyframes`
@@ -44,11 +24,11 @@ const rotate = keyframes`
   }
 `;
 
-export const SubmitButton = styled.button.attrs(props => ({
+export const SubmitButton = styled.button.attrs((props) => ({
   type: 'submit',
   disabled: props.loading,
 }))`
-  background: #7159c1;
+  background: #2cd697;
   border: 0;
   padding: 0 15px;
   margin-left: 10px;
@@ -64,11 +44,35 @@ export const SubmitButton = styled.button.attrs(props => ({
     opacity: 0.6;
   }
 
-  ${props =>
-    props.loading &&
-    css`
+  ${(props) => props.loading
+    && css`
       svg {
         animation: ${rotate} 2s linear infinite;
       }
     `}
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 30px;
+
+  li {
+    border: 1px solid #c4efca;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /**Aplica estilização em toda li menos na primeira tag */
+    & + li {
+      border-top: 1px solid #eee;
+    }
+
+    a {
+      color: #284387;
+      text-decoration: none;
+    }
+  }
 `;
